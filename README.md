@@ -1,24 +1,36 @@
+# Bille sur un plateau
 
-> Ouvrir cette page à [https://jotitan.github.io/microbit-rolling-ball/](https://jotitan.github.io/microbit-rolling-ball/)
+L'objectif du projet est d'afficher une petite bille qui se déplace sur le plateau en fonction de l'inclinaison.
 
-## Utiliser comme extension
+## Fonctionnement
 
-Ce dépôt peut être ajouté en tant qu'**extension** dans MakeCode.
+Quand on incline la carte, le point qui est affiché suit l'angle de la carte.
 
-* ouvrir [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* cliquez sur **Nouveau projet**
-* cliquez sur **Extensions** dans le menu engrenage
-* recherchez **https://github.com/jotitan/microbit-rolling-ball** et importez
+## Les entrées
 
-## Éditer ce projet
+La carte de plusieurs capteurs : thermomètre, boussole, inclinaison.
+La fonction *input.rotation* permet de récupérer l'inclinaison de la carte : 
+``` javascript
+input.rotation(Rotation.Roll) // Angle de l'inclinaison gauche / droite
+input.rotation(Rotation.Pitch) // Angle de l'inclinaison haut / bas
+```
 
-Éditer ce dépôt dans MakeCode.
+## Etapes
 
-* ouvrir [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* cliquez sur **Importer** puis cliquez sur **Importer l'URL **
-* collez **https://github.com/jotitan/microbit-rolling-ball** et cliquez sur importer
+* Créer une classe point (x, y) pour simplifier la suite
+* La fonction forever est une boucle "while", écrire le code dedans
+* A chaque tour, récupérer l'inclinaison haut / bas et gauche / droite
+* Convertissez ces angles pour les afficher sur la matrice 5x5 en considérant le point du milieu (2,2) comme la position "à plat sur une table".
+* Vous allez devoir définir des bornes au dela desquelles l'inclinaison a une limite, comme des bords sur la carte
+* Vous pouvez améliorer votre code en modifiant la valeur de ces bornes à la volée (l'augmenter avec B, le diminuer avec A)
 
-#### Métadonnées (utilisées pour la recherche, le rendu)
-
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+## Aide
+* Pour allumer un point : 
+``` javascript
+led.plot(x,y);
+```
+* Pour éteindre un point : 
+``` javascript
+led.unplot(x,y);
+```
+* 
