@@ -26,6 +26,7 @@ input.rotation(Rotation.Pitch) // Angle de l'inclinaison haut / bas
 * Vous pouvez améliorer votre code en modifiant la valeur de ces bornes à la volée (l'augmenter avec B, le diminuer avec A)
 
 ## Aide
+* [Documentation sur la manipulation des leds](https://makecode.microbit.org/reference/led)
 * Pour allumer un point : 
 ``` javascript
 led.plot(x,y);
@@ -34,3 +35,5 @@ led.plot(x,y);
 ``` javascript
 led.unplot(x,y);
 ```
+
+Le fichier skeleton.ts vous donne une structure de code pour démarrer.
